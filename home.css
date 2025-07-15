@@ -1,0 +1,152 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+header#main-header {
+  position: sticky;
+  top: 0;
+  background: #222;
+  color: #fff;
+  z-index: 100;
+  transition: all 0.3s;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  transition: padding 0.3s;
+}
+header#main-header.shrink .header-content {
+  padding: 0.5rem 1rem;
+}
+header#main-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  transition: font-size 0.3s;
+}
+header#main-header.shrink h1 {
+  font-size: 1.2rem;
+}
+#menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+}
+
+#planner {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.time-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.hour-label {
+  flex: 0 0 70px;
+  background: #ececec;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  font-weight: bold;
+  border-right: 1px solid #ddd;
+}
+.task-input {
+  flex: 1 1 auto;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  resize: none;
+  min-height: 48px;
+  background: transparent;
+  outline: none;
+  transition: min-height 0.2s;
+}
+.save-btn {
+  flex: 0 0 60px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0 1rem;
+  height: 100%;
+  transition: background 0.2s;
+}
+.save-btn:hover, .save-btn:focus {
+  background: #0056b3;
+}
+.time-block.past {
+  background: #e0e0e0;
+}
+.time-block.present {
+  background: #ffcccc;
+}
+.time-block.future {
+  background: #d4edda;
+}
+
+/* Toast notification */
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 24px;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s, bottom 0.4s;
+  z-index: 200;
+}
+#toast.show {
+  opacity: 1;
+  bottom: 3.5rem;
+  pointer-events: auto;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  #planner {
+    max-width: 100%;
+    margin: 1rem 0;
+    padding: 0 0.5rem;
+  }
+  .time-block {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hour-label {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+  }
+  .save-btn {
+    width: 100%;
+    padding: 0.75rem 0;
+    border-radius: 0 0 6px 6px;
+  }
+  .header-content {
+    padding: 0.75rem 0.5rem;
+  }
+  #menu-toggle {
+    display: block;
+  }
+}
